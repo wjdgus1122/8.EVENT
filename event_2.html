@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event_2</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box_wrap{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box{
+            width: 30%;
+            height: 400px;
+            background-color: salmon;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+
+        .con{
+            width: 400px;
+            height: 250px;
+            border: 10px solid black;
+            margin-top: 30px;
+        }
+
+        button{
+            font-size: 30px;
+        }
+
+        .colorful{
+            background-color: bisque;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="box_wrap">
+        <div class="box box_1">1</div>
+        <div class="box box_2">2</div>
+        <div class="box box_3">3</div>
+    </div>
+
+    <div class="con"></div>
+    <button class="add_color">색상넣기</button>
+    <button class="remove_color">색상빼기</button>
+
+    <script src="js/btnEvent.js"></script>
+    <!-- =>외부로 스크립트를 뺏을때 sript태그 내부에 아무것도 작성하면 안됨 -->
+    <script>
+
+        // (function(){
+            // *
+            // =>세개의 박스에 클릭했을때 on클래스를 추가
+            // =>클래스가 추가각 되어 있으면 제거, 없으면 추가하기
+            // 방법1
+        //     const box_1 = document.querySelector('.box:nth-child(1)')
+        //     const box_2 = document.querySelector('.box:nth-child(2)')
+        //     const box_3 = document.querySelector('.box:nth-child(3)')
+            
+        //     const color_add_1 = () => {
+        //         box_1.classList.toggle('colorful')
+
+        //     }
+
+        //     const color_add_2 = () => {
+        //         box_2.classList.toggle('colorful')
+        //     }
+
+        //     const color_add_3 = () => {
+        //         box_3.classList.toggle('colorful')
+        //     }
+            
+        //     box_1.addEventListener('click', color_add_1)
+        //     box_2.addEventListener('click', color_add_2)
+        //     box_3.addEventListener('click', color_add_3)
+            
+        // })()
+
+        // 방법2
+        // (function (){
+        //     const box = document.querySelectorAll('.box')
+
+        //     const add = ()=>{
+        //         box[0].classList.toggle('colorful')
+        //     }
+        //     const add_1 = ()=>{
+        //         box[1].classList.toggle('colorful')
+        //     }
+        //     const add_2 = ()=>{
+        //         box[2].classList.toggle('colorful')
+        //     }
+            
+        //     box[0].addEventListener('click', add)
+        //     box[1].addEventListener('click', add_1)
+        //     box[2].addEventListener('click', add_2)
+        
+        // })()
+
+        // 방법3
+        (function(){
+            const box = document.querySelectorAll('.box')
+
+            for(let i=0; i<=2; i++){
+            box[i].addEventListener('click', () => box[i].classList.toggle('colorful'));
+            }
+        })()
+        
+        // })()
+
+
+        // *풀이
+        // 방법1
+        // const box_1 = document.querySelector('.box_1');
+        // const box_2 = document.querySelector('.box_2');
+        // const box_3 = document.querySelector('.box_3');
+        // const boxAll = document.querySelectorAll('.box')
+     
+        // box_1.addEventListener('click', () => {
+        //     box_1.classList.toggle('colorful');
+        // });
+
+        // box_2.addEventListener('click', () => {
+        //     box_2.classList.toggle('colorful');
+        // });
+
+        // box_3.addEventListener('click', () => {
+        //     box_3.classList.toggle('colorful');
+        // });
+
+        // 방법2
+
+        // box_1.addEventListener('click', () => box_1.classList.toggle('colorful'));
+
+        // box_2.addEventListener('click', () => box_2.classList.toggle('colorful'));
+
+        // box_3.addEventListener('click', () => box_3.classList.toggle('colorful'));
+        // =>중괄호없애기
+
+        // 방법3
+        // boxAll[0].addEventListener('click', () => boxAll[0].classList.toggle('colorful'));
+        // boxAll[1].addEventListener('click', () => boxAll[1].classList.toggle('colorful'));
+        // boxAll[2].addEventListener('click', () => boxAll[2].classList.toggle('colorful'));
+
+        // 방법4
+        // for(let i=0; i<=2; i++){
+        //     boxAll[i].addEventListener('click', () => boxAll[i].classList.toggle('colorful'));
+        // }
+
+    </script>
+</body>
+</html>
